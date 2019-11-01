@@ -5,6 +5,7 @@ using UnityEngine;
 public class Camera_Manager : MonoBehaviour
 {
     public GameObject cam;
+    public GameObject[] unitRotator;
     //public GameObject centerPoint;
 
     public float panSpeed;
@@ -47,6 +48,10 @@ public class Camera_Manager : MonoBehaviour
             }
             counter++;
             cam.transform.rotation = Quaternion.Euler(60, currentRotation, 0);
+            for (int i = 0; i < unitRotator.Length; i++)
+            {
+                unitRotator[i].transform.rotation = Quaternion.Euler(0, currentRotation, 0);
+            }
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -57,6 +62,10 @@ public class Camera_Manager : MonoBehaviour
             }
             counter--;
             cam.transform.rotation = Quaternion.Euler(60, currentRotation, 0);
+            for (int i = 0; i < unitRotator.Length; i++)
+            {
+                unitRotator[i].transform.rotation = Quaternion.Euler(0, currentRotation, 0);
+            }
         }
       
         //CAMERA CONTROLS IN RESPECT TO ROTATION BELOW
