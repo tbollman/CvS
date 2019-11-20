@@ -1,0 +1,15 @@
+# Blender v2.76 (sub 0) OBJ File: 'blocks.blend'
+# www.blender.org
+mtllib plane-4-faces.mtl
+o plane-4-faces_Cube.034
+v 1.000000 1.000000 -0.999999
+v 0.999999 1.000000 1.000001
+v -1.000000 1.000000 1.000000
+v -1.000000 1.000000 -1.000000
+vt 0.495025 0.995025
+vt 0.004975 0.995025
+vt 0.004975 0.504975
+vt 0.495025 0.504975
+usemtl None
+s off
+f 1/1 4/2 3/3 2/4
