@@ -29,14 +29,15 @@ public class Camera_Manager : MonoBehaviour
     {
         
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             StartCoroutine(Attack_Pause());
         }
+        /************************ PANNING CONTROLS BELOW ********************/
 
-        if (CameraLock == false) //PANNING CONTROLS BELOW
+        if (CameraLock == false) //simple bool to lock camera movement during animations
         {
-            pos = cam.transform.position;
+            pos = cam.transform.position; 
             
 
             if (Input.GetKeyDown(KeyCode.E)) //rotates camera to the right
