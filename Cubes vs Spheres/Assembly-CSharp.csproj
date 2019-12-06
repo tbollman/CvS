@@ -62,11 +62,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Other_Stuff\Scripts\CharacterStats.cs" />
+    <Compile Include="Assets\Other_Stuff\Scripts\HealthManager.cs" />
+    <Compile Include="Assets\Other_Stuff\Scripts\HighlightDetector.cs" />
+    <Compile Include="Assets\Other_Stuff\Scripts\MapGenerator.cs" />
+    <Compile Include="Assets\Other_Stuff\Scripts\MenuScript.cs" />
+    <Compile Include="Assets\Other_Stuff\Scripts\NPCMove.cs" />
+    <Compile Include="Assets\Other_Stuff\Scripts\PlayerMove.cs" />
+    <Compile Include="Assets\Other_Stuff\Scripts\TacticsCamera.cs" />
+    <Compile Include="Assets\Other_Stuff\Scripts\TacticsMove.cs" />
+    <Compile Include="Assets\Other_Stuff\Scripts\Tile.cs" />
+    <Compile Include="Assets\Other_Stuff\Scripts\TurnManager.cs" />
+    <Compile Include="Assets\Other_Stuff\Scripts\TurnMenu.cs" />
     <Compile Include="Assets\Scripts\Camera_Manager.cs" />
     <Compile Include="Assets\Scripts\Highlight_Detector.cs" />
     <Compile Include="Assets\Scripts\Radial_Menu_Manager.cs" />
     <Compile Include="Assets\Scripts\Tile_Map_Manager.cs" />
     <Compile Include="Assets\Scripts\Turn_Order_Manager.cs" />
+    <Compile Include="Assets\Scripts\Unit_Animation_Manager.cs" />
     <Compile Include="Assets\Scripts\Unit_Stats.cs" />
     <None Include="Assets\Shaders\Silhouette_Diffuse.shader" />
     <Reference Include="Unity.Timeline.Editor">

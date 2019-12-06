@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Tile_Map_Beta.unity
+- path: Assets/Scenes/The_real_One.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -6,7 +6,9 @@ public class Camera_Manager : MonoBehaviour
 {
     public GameObject cam;
     public GameObject[] unitRotator;
-    public GameObject Unit;
+    public ParticleSystem gunflash;
+    public AudioSource gunSFX;
+    
     public GameObject Enemy;
 
     public float panSpeed;
@@ -27,19 +29,20 @@ public class Camera_Manager : MonoBehaviour
     // Update is called once per frame
     void Update() 
     {
-        
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            StartCoroutine(Attack_Pause());
+            StartCoroutine(Attack_Pause(TurnManager.currentUnit, Enemy));
         }
+
+
         /************************ PANNING CONTROLS BELOW ********************/
 
         if (CameraLock == false) //simple bool to lock camera movement during animations
         {
             pos = cam.transform.position; 
             
-
+            
             if (Input.GetKeyDown(KeyCode.E)) //rotates camera to the right
             {
                 currentRotation -= 45;
@@ -68,6 +71,25 @@ public class Camera_Manager : MonoBehaviour
                     unitRotator[i].transform.rotation = Quaternion.Euler(0, currentRotation, 0);
                 }
             }
+
+            if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.LeftShift))
+            {
+                if (pos.y <= 7)
+                {
+                    pos.y += 0.2f;
+                    pos.z -= 0.1f;
+                }
+            }
+            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift))
+            {
+                if (pos.y >= 2.5)
+                {
+                    pos.y -= 0.2f;
+                    pos.z += 0.1f;
+                }
+            }
+
+
 
             //CAMERA CONTROLS IN RESPECT TO ROTATION BELOW
 
@@ -243,12 +265,24 @@ public class Camera_Manager : MonoBehaviour
         }
     }
 
-    IEnumerator Attack_Pause()
+    public IEnumerator Attack_Pause(GameObject unit, GameObject target)
     {
         CameraLock = true;
         origin = cam.transform.position;
-        cam.transform.position = Unit.transform.position + new Vector3(0, 1, -0.5f);
-        yield return new WaitForSeconds(1f);
+        cam.transform.position = unit.transform.position + new Vector3(0, 1, -0.8f);
+        unit.transform.GetChild(0).gameObject.SetActive(false);
+        unit.transform.GetChild(2).gameObject.SetActive(true);
+        gunflash.Play();
+        gunSFX.Play();
+        yield return new WaitForSeconds(0.5f);
+        target.transform.GetChild(0).gameObject.SetActive(false);
+        target.transform.GetChild(3).gameObject.SetActive(true);
+        cam.transform.position = target.transform.position + new Vector3(0, 1, -0.8f);
+        yield return new WaitForSeconds(0.5f);
+        unit.transform.GetChild(0).gameObject.SetActive(true);
+        target.transform.GetChild(0).gameObject.SetActive(true);
+        target.transform.GetChild(3).gameObject.SetActive(false);
+        unit.transform.GetChild(2).gameObject.SetActive(false);
         cam.transform.position = origin;
         CameraLock = false;
     }
