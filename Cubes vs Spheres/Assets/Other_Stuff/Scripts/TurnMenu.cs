@@ -88,9 +88,10 @@ public class TurnMenu : MonoBehaviour
                     
                     if (targetUnit != null) {
                         Debug.Log(targetUnit.name);
-                        targetUnit.GetComponent<HealthManager>().health--;
-                        StartCoroutine(cM.Attack_Pause(this.gameObject, targetUnit));
                         
+                        StartCoroutine(cM.Attack_Pause(this.gameObject, targetUnit));
+                        targetUnit.GetComponent<HealthManager>().health--;
+
                         attacking = false;
                         Wait();
                     }

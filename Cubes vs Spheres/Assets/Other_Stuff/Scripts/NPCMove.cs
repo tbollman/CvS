@@ -36,8 +36,8 @@ public class NPCMove : TacticsMove
             CheckDistance(-Vector3.right, target);
             if (targetUnit != null)
             {
-                targetUnit.GetComponent<HealthManager>().health--;
                 StartCoroutine(cM.Attack_Pause(this.gameObject, targetUnit));
+                targetUnit.GetComponent<HealthManager>().health--;
                 turn = false;
                 TurnManager.EndTurn();
             }
